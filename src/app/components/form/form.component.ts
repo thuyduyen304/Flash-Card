@@ -82,9 +82,9 @@ export class FormComponent implements OnInit {
       reader.onload = (event) => { // called once readAsDataURL is completed
         var picFile = <FileReader>event.target;
         if (type === 'card') {
-          this.getCardsFormArray()['controls'][idx]['controls'].pic.value = picFile.result;
+          this.getCardsFormArray()['controls'][idx].get('pic').setValue(picFile.result);
         } else {
-			
+			this.flashCardForm.get('pic').setValue(picFile.result);
 		}
       }
     }
