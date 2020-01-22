@@ -73,7 +73,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  onSelectFile(event, idx, type='card') { // called each time file input changes
+  onSelectFile(event, idx=-1, type='card') { // called each time file input changes
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
@@ -83,8 +83,9 @@ export class FormComponent implements OnInit {
         var picFile = <FileReader>event.target;
         if (type === 'card') {
           this.getCardsFormArray()['controls'][idx]['controls'].pic.value = picFile.result;
-        }
-        this.flashCardForm.get('pic').setValue(picFile.result);
+        } else {
+			
+		}
       }
     }
   }
