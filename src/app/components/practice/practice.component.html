@@ -1,0 +1,57 @@
+<header class="card-header">
+  <p class="card-header-title">
+  {{set.name}}
+  </p>
+
+  <div tabindex="-1" (click)="dropdown_active=!dropdown_active" (blur)="dropdown_active=false" [class] = "dropdown_active ? 'is-active dropdown is-right' : 'dropdown is-right'">
+      <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span>Practice</span>
+          <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+          </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+          <a routerLink="/set/{{set.id}}/learn" class="dropdown-item">
+              Learn
+          </a>
+          <a routerLink="/set/{{set.id}}/edit" class="dropdown-item">
+              Modify
+          </a>
+          </div>
+      </div>
+  </div>
+</header>
+
+<div class="main-content">
+  <div class="tile is-ancestor">
+    <div class="tile is-4 is-vertical">
+
+      <div class="tile is-parent">
+        <article class="tile is-child notification has-text-centered">
+          <p class="title">{{cards[target].des}}</p>
+          <figure class="image is-square">
+              <img src="{{cards[target].pic}}" alt="{{cards[target].des}}">
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent answers is-vertical">
+      <div class="tile is-child has-text-centered">
+        <button class="button is-info is-medium" (tap)="tap(0)" [disabled]="ans[0].state">{{ans[0].word}}</button>
+      </div>
+      <div class="tile is-child has-text-centered">
+        <button class="button is-info is-medium" (tap)="tap(1)" [disabled]="ans[1].state">{{ans[1].word}}</button>
+      </div>
+      <div class="tile is-child has-text-centered">
+        <button class="button is-info is-medium" (tap)="tap(2)" [disabled]="ans[2].state">{{ans[2].word}}</button>
+      </div>
+      <div class="tile is-child has-text-centered">
+        <button class="button is-info is-medium" (tap)="tap(3)" [disabled]="ans[3].state">{{ans[3].word}}</button>
+      </div>
+    </div>
+
+  </div>
+</div>

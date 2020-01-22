@@ -1,0 +1,129 @@
+<header class="card-header">
+  <p class="card-header-title">
+  {{flashCardForm.get('name').value}}
+  </p>
+
+  <div tabindex="-1" (click)="dropdown_active=!dropdown_active" (blur)="dropdown_active=false" [class] = "dropdown_active ? 'is-active dropdown is-right' : 'dropdown is-right'">
+      <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span>Modify</span>
+          <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+          </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+          <a routerLink="/set/{{flashCardForm.get('id').value}}/learn" class="dropdown-item">
+              Learn
+          </a>
+          <a routerLink="/set/{{flashCardForm.get('id').value}}/practice" class="dropdown-item">
+              Practice
+          </a>
+          </div>
+      </div>
+  </div>
+</header>
+<div class="content">
+	<form [formGroup]="flashCardForm" (ngSubmit)="onSubmit(flashCardForm)">
+	<label class="label">Name</label>
+	<div class="control">
+		<input class="input" type="text" placeholder="Text input" formControlName="name">
+	</div>
+	<label class="label">Picture</label>
+		<figure class="image is-2by1" *ngIf="flashCardForm.get('pic').value != ''">
+			<img src="{{flashCardForm.get('pic').value}}" 
+			alt="{{flashCardForm.get('name').value}}">
+		</figure>
+		<div class="file has-name is-fullwidth">
+			<label class="file-label">
+				<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,i,'set')">
+				<span class="file-cta">
+				<span class="file-label">
+					Choose a picture...
+				</span>
+				</span>
+				<span class="file-name">
+				{{flashCardForm.get('pic').value}}
+				</span>
+			</label>
+		</div>
+
+		<div class="field">
+			<label class="label">Category</label>
+			<div class="control">
+				<div class="select"> 
+					<select formControlName="cat">
+						<option *ngFor="let category of categories; let i = index" [value]="categories[i].id">
+						{{category.name}}
+						</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Description</label>
+			<div class="control">
+				<textarea class="textarea" placeholder="Textarea" formControlName="des"></textarea>
+			</div>
+		</div>
+
+		<div formArrayName="cards">
+			<label class="label">List of words</label>
+			
+			<div class="form-group" *ngFor="let card of getCardsFormArray().controls; let i=index">
+				<br>
+				<details [open]="card.controls.new.value">
+					<summary>{{card.controls.word.value}}</summary>
+					<div [formGroupName]="i">
+						<div class="field">
+							<div class="control">
+								<input class="input" type="text" placeholder="New vocabulary" formControlName="word" (blur)="onBlurWord($event,i)">
+							</div>
+						</div>
+						<div class="field">
+							<div class="control">
+								<textarea class="textarea" placeholder="Meaning" formControlName="des"></textarea>
+							</div>
+						</div>
+						<figure class="image is-128x128" *ngIf="card.controls.pic.value != ''">
+							<img src="{{card.controls.pic.value}}" 
+							alt="{{card.controls.word.value}}">
+						</figure>
+						<div class="file has-name is-fullwidth">
+							<label class="file-label">
+								<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,i)">
+								<span class="file-cta">
+								<span class="file-label">
+									Choose a picture...
+								</span>
+								</span>
+								<span class="file-name">
+								{{card.controls.pic.value}}
+								</span>
+							</label>
+						</div>
+						<input type="hidden" formControlName="id" value="{{card.controls.id.value}}"  
+						*ngIf="card.controls.id">
+					</div>
+				</details>
+				
+			</div>
+		</div>
+		<input type="hidden" formControlName="id" value="{{flashCardForm.controls.id.value}}"> 
+		<input type="hidden" formControlName="uid" value="0"> 
+		<div class="operator">
+			<div class="control">
+				<button class="button is-outlined is-primary" type="button" (click)="addNewCard()">Add new word</button>
+			</div>
+			<br/>
+			<div class="control">
+				<button class="button is-primary" type="submit">Save changes</button>
+			</div>
+		</div>
+		
+	</form>
+</div>
+
+

@@ -1,0 +1,47 @@
+<div class="card">
+    <header class="card-header">
+        <p class="card-header-title">
+        {{set.name}}
+        </p>
+
+        <div tabindex="-1" (click)="dropdown_active=!dropdown_active" (blur)="dropdown_active=false" [class] = "dropdown_active ? 'is-active dropdown is-right' : 'dropdown is-right'">
+            <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Learn</span>
+                <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                <a routerLink="/set/{{set.id}}/practice" class="dropdown-item">
+                    Practice
+                </a>
+                <a routerLink="/set/{{set.id}}/edit" class="dropdown-item">
+                    Modify
+                </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="card-content swipe-box"  
+        *ngFor="let card of cards; let idx=index"
+        (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" 
+        [class.visible]="card.visible" [class.hidden]="!card.visible">
+        <div class="is-horizontal-center column">
+            <article class="notification has-text-centered">
+                <p class="title">{{card.word}}</p>
+                <figure class="image is-square">
+                    <img src="{{card.pic}}" alt="{{card.des}}">
+                </figure>
+            </article>
+            <div class="has-text-centered is-size-3">
+            {{card.des}}
+            </div>
+        </div>
+    </div>
+
+</div>

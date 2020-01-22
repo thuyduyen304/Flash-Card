@@ -1,0 +1,280 @@
+{
+  "sets": [
+    {
+      "name": "Animal",
+      "des": "A collection of vocabularies about animals",
+      "pic": "assets/img/animals.jpg",
+      "cat": "life",
+      "rating": 5,
+      "uid": 0,
+      "id": 1
+    },
+    {
+      "name": "Family",
+      "cat": "life",
+      "rating": 5,
+      "id": 2,
+      "des": "A collection of vocabularies about family",
+      "uid": 0,
+      "pic": "assets/img/family.jpg"
+    },
+    {
+      "name": "Children",
+      "cat": "life",
+      "rating": 3,
+      "id": 3,
+      "des": "A collection of vocabularies about children",
+      "uid": 0,
+      "pic": "assets/img/aladdin.jpg"
+    },
+    {
+      "name": "Love",
+      "cat": "life",
+      "rating": 4,
+      "id": 4,
+      "des": "A collection of vocabularies about love",
+      "uid": 0,
+      "pic": "assets/img/love.png"
+    },
+    {
+      "name": "Maths",
+      "cat": "subject",
+      "rating": 3,
+      "id": 5,
+      "des": "A collection of vocabularies about maths",
+      "uid": 0,
+      "pic": "assets/img/maths.jpg"
+    },
+    {
+      "name": "Fashion",
+      "cat": "life",
+      "rating": 5,
+      "id": 6,
+      "des": "A collection of vocabularies about fashion",
+      "uid": 0,
+      "pic": "assets/img/fashion.jpg"
+    },
+    {
+      "name": "Physical",
+      "cat": "subject",
+      "rating": 4,
+      "id": 7,
+      "des": "A collection of vocabularies about physical",
+      "uid": 0,
+      "pic": "assets/img/physical.png"
+    },
+    {
+      "name": "Biology",
+      "cat": "subject",
+      "rating": 5,
+      "id": 8,
+      "des": "A collection of vocabularies about biology",
+      "uid": 0,
+      "pic": "assets/img/biology.png"
+    },
+    {
+      "name": "Aladdin",
+      "cat": "disney",
+      "rating": 3,
+      "id": 9,
+      "des": "A collection of vocabularies in Aladdin",
+      "uid": 0,
+      "pic": "assets/img/aladdin.jpg"
+    },
+    {
+      "name": "Cinderella",
+      "cat": "disney",
+      "rating": 4,
+      "id": 10,
+      "des": "A collection of vocabularies in Cinderella",
+      "uid": 0,
+      "pic": "assets/img/cinderella.jpg"
+    },
+    {
+      "name": "Christmas Eve",
+      "cat": "disney",
+      "rating": 5,
+      "id": 11,
+      "des": "A collection of vocabularies in Christmas Eve",
+      "uid": 0,
+      "pic": "assets/img/christmas_eve.jpg"
+    },
+    {
+      "name": "The Frog Prince",
+      "cat": "disney",
+      "rating": 3,
+      "id": 12,
+      "des": "A collection of vocabularies in The Frog Prince",
+      "uid": 0,
+      "pic": "assets/img/frog_prince.jpg"
+    },
+    {
+      "name": "Hansel and Gretel",
+      "cat": "disney",
+      "rating": 5,
+      "id": 13,
+      "des": "A collection of vocabularies in Hansel and Gretel",
+      "uid": 0,
+      "pic": "assets/img/hansel_and_gretel.jpg"
+    },
+    {
+      "name": "Ariel",
+      "cat": "disney",
+      "rating": 3,
+      "id": 14,
+      "des": "A collection of vocabularies in Ariel",
+      "uid": 0,
+      "pic": "assets/img/ariel.jpg"
+    },
+    {
+      "name": "Geography",
+      "cat": "subject",
+      "rating": 5,
+      "id": 15,
+      "des": "A collection of vocabularies about geography",
+      "uid": 0,
+      "pic": "assets/img/geography.jpg"
+    },
+    {
+      "name": "Chemistry",
+      "cat": "subject",
+      "rating": 5,
+      "id": 16,
+      "des": "A collection of vocabularies about chemistry",
+      "uid": 0,
+      "pic": "assets/img/chemistry.png"
+    }
+  ],
+  "cards": [
+    {
+      "word": "le chien",
+      "des": "dog",
+      "pic": "assets/img/dog.png",
+      "setId": 1,
+      "uid": 0,
+      "id": 1
+    },
+    {
+      "word": "le chat",
+      "des": "cat",
+      "pic": "assets/img/cat.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 2
+    },
+    {
+      "word": "la oseau",
+      "des": "bird",
+      "pic": "/assets/img/bird.png",
+      "setId": 1,
+      "uid": 0,
+      "id": 3
+    },
+    {
+      "word": "la fourmi",
+      "des": "ant",
+      "pic": "/assets/img/ant.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 4
+    },
+    {
+      "word": "le éléphant",
+      "des": "elephant",
+      "pic": "/assets/img/elephant.jpg",
+      "id": 5
+    },
+    {
+      "word": "le tigre",
+      "des": "tiger",
+      "pic": "/assets/img/tiger.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 6
+    },
+    {
+      "word": "le poulet",
+      "des": "chicken",
+      "pic": "/assets/img/chicken.png",
+      "setId": 1,
+      "uid": 0,
+      "id": 7
+    },
+    {
+      "word": "la moutette",
+      "des": "seagull",
+      "pic": "/assets/img/seagull.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 8
+    },
+    {
+      "word": "la baleine",
+      "des": "whale",
+      "pic": "/assets/img/whale.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 9
+    },
+    {
+      "word": "la tortue",
+      "des": "turtle",
+      "pic": "/assets/img/turtle.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 10
+    },
+    {
+      "word": "le poulpe",
+      "des": "octopus hh",
+      "pic": "/assets/img/octopus.jpg",
+      "setId": 1,
+      "uid": 0,
+      "id": 11
+    }
+  ],
+  "fav": [
+    {
+      "id": 1,
+      "uid": 1,
+      "setId": 1
+    },
+    {
+      "id": 2,
+      "uid": 1,
+      "setId": 2
+    },
+    {
+      "id": 3,
+      "uid": 1,
+      "setId": 3
+    },
+    {
+      "id": 4,
+      "uid": 1,
+      "setId": 4
+    },
+    {
+      "id": 5,
+      "uid": 1,
+      "setId": 5
+    }
+  ],
+  "recent": [
+    {
+      "id": 1,
+      "uid": 1,
+      "setId": 1
+    },
+    {
+      "id": 2,
+      "uid": 1,
+      "setId": 2
+    },
+    {
+      "id": 3,
+      "uid": 1,
+      "setId": 4
+    }
+  ]
+}

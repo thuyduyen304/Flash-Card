@@ -1,0 +1,24 @@
+<section>
+	<!--<h2>{{ flashCardCat }}</h2>-->
+	<div class="table-container">
+		<table class="table">
+			<tr>
+				<td *ngFor="let flashcard of flashCardLists">
+					<article class="card has-text-centered" (click)="openDialog(flashcard.id)">
+						<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="{{flashcard.pic}}" alt="{{flashcard.des}}" />
+						</figure>
+						</div>
+						<header class="card-header">
+							<a class="card-header-title">
+							{{ flashcard.name }}
+							</a>
+						</header>
+					</article>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+</section>

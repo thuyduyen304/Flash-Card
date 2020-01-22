@@ -1,0 +1,25 @@
+<div class="card" *ngIf="loaded">
+  <header class="card-header">
+	<div *ngIf="setDetails.pic != ''">
+    <figure class="image is-4by3">
+      <img src="{{setDetails.pic}}" alt="{{setDetails.des}}">
+    </figure>
+	</div>
+  <p class="card-header-title">
+    {{setDetails.name}}
+  </p>
+  </header>
+  <div class="card-content">
+	<div class="content" [innerHTML]="setDetails.des"></div>
+	<div>List of words:</div>
+    <div class="content">
+      <span *ngFor="let card of setDetails.cards | slice:0:20;">{{card.word}}, </span>
+      <span>etc.</span>
+	</div>
+  </div>
+  <footer class="card-footer">
+    <a class="card-footer-item" routerLink="set/{{setDetails.id}}/learn">Learn</a>
+    <a class="card-footer-item" routerLink="set/{{setDetails.id}}/practice">Practice</a>
+    <a class="card-footer-item" routerLink="set/{{setDetails.id}}/edit">Modify</a>
+  </footer>
+</div>
