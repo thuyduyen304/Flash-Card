@@ -37,7 +37,7 @@
 		</figure>
 		<div class="file has-name is-fullwidth">
 			<label class="file-label">
-				<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,i,'set')">
+				<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,-1,'set')">
 				<span class="file-cta">
 				<span class="file-label">
 					Choose a picture...
@@ -79,7 +79,7 @@
 					<div [formGroupName]="i">
 						<div class="field">
 							<div class="control">
-								<input class="input" type="text" placeholder="New vocabulary" formControlName="word" (blur)="onBlurWord($event,i)">
+								<input class="input" type="text" placeholder="New vocabulary" formControlName="word">
 							</div>
 						</div>
 						<div class="field">

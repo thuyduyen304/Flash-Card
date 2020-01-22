@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
   public sid;
   flashCardForm: FormGroup = new FormGroup({});
   cardsForm: Array<FormGroup> = [];
+  dropdown_active = false;
 
   categories = [];
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private cardSetService: CardsetService) {}

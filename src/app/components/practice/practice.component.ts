@@ -12,6 +12,8 @@ export class PracticeComponent implements OnInit {
   cards;
   target;
   ans;
+  
+  dropdown_active = false;
 
   constructor(private route: ActivatedRoute) {}
 
