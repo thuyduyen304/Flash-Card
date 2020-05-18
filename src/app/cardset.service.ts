@@ -7,7 +7,7 @@ import { map, catchError, tap, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CardsetService {
-  url = 'https://flacar-db.herokuapp.com';
+  url = '';
 
   httpOptions = {
     headers: new HttpHeaders({
