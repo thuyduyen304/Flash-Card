@@ -367,7 +367,7 @@ mat-dialog-container {
 		color: white
 	}
 	
-	.fc-card-back .fc-card-main-content p {
+	.fc-card-back .fc-card-main-content p.fc-main-text {
 		font-size: 2rem;
 	}
 }
