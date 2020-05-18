@@ -1,3 +1,4 @@
+<!-- 
 <header class="card-header">
   <p class="card-header-title">
   {{flashCardForm.get('name').value}}
@@ -23,107 +24,129 @@
           </div>
       </div>
   </div>
-</header>
-<div class="content">
-	<form [formGroup]="flashCardForm" (ngSubmit)="onSubmit(flashCardForm)">
-	<label class="label">Name</label>
-	<div class="control">
-		<input class="input" type="text" placeholder="Text input" formControlName="name">
-	</div>
-	<label class="label">Picture</label>
-		<figure class="image is-2by1" *ngIf="flashCardForm.get('pic').value != ''">
-			<img src="{{flashCardForm.get('pic').value}}" 
-			alt="{{flashCardForm.get('name').value}}">
-		</figure>
-		<div class="file has-name is-fullwidth">
-			<label class="file-label">
-				<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,-1,'set')">
-				<span class="file-cta">
-				<span class="file-label">
-					Choose a picture...
-				</span>
-				</span>
-				<span class="file-name">
-				{{flashCardForm.get('pic').value}}
-				</span>
-			</label>
-		</div>
+</header> -->
 
-		<div class="field">
-			<label class="label">Category</label>
-			<div class="control">
-				<div class="select"> 
-					<select formControlName="cat">
-						<option *ngFor="let category of categories; let i = index" [value]="categories[i].id">
-						{{category.name}}
-						</option>
-					</select>
+<div class="content" class="fc-book" id="fc-set-modify">
+	<div class="fc-set-title">
+		{{flashCardForm.get('name').value}}
+	</div>
+	<div class="fc-set-content">
+		<form [formGroup]="flashCardForm" (ngSubmit)="onSubmit(flashCardForm)" class="fc-book-page fc-form">
+		<div class="has-text-info is-italic is-size-7">This is a mockup. Your changes will last for a short time only.</div>
+		<label class="label">Name</label>
+		<div class="control">
+			<input class="input" type="text" placeholder="Text input" formControlName="name">
+		</div>
+		<label class="label">Picture</label>
+			<figure class="image" *ngIf="flashCardForm.get('pic').value != ''">
+				<img src="{{flashCardForm.get('pic').value}}" 
+				alt="{{flashCardForm.get('name').value}}">
+			</figure>
+			<div class="file has-name is-fullwidth">
+				<label class="file-label">
+					<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,-1,'set')">
+					<span class="file-cta">
+					<span class="file-label">
+						Choose a picture...
+					</span>
+					</span>
+					<span class="file-name">
+					{{flashCardForm.get('pic').value}}
+					</span>
+				</label>
+			</div>
+	
+			<div class="field">
+				<label class="label">Category</label>
+				<div class="control">
+					<div class="select"> 
+						<select formControlName="cat">
+							<option *ngFor="let category of categories; let i = index" [value]="categories[i].id">
+							{{category.name}}
+							</option>
+						</select>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="field">
-			<label class="label">Description</label>
-			<div class="control">
-				<textarea class="textarea" placeholder="Textarea" formControlName="des"></textarea>
+	
+			<div class="field">
+				<label class="label">Description</label>
+				<div class="control">
+					<textarea class="textarea" placeholder="Textarea" formControlName="des"></textarea>
+				</div>
 			</div>
-		</div>
-
-		<div formArrayName="cards">
-			<label class="label">List of words</label>
-			
-			<div class="form-group" *ngFor="let card of getCardsFormArray().controls; let i=index">
-				<br>
-				<details [open]="card.controls.new.value">
-					<summary>{{card.controls.word.value}}</summary>
-					<div [formGroupName]="i">
-						<div class="field">
-							<div class="control">
-								<input class="input" type="text" placeholder="New vocabulary" formControlName="word">
-							</div>
-						</div>
-						<div class="field">
-							<div class="control">
-								<textarea class="textarea" placeholder="Meaning" formControlName="des"></textarea>
-							</div>
-						</div>
-						<figure class="image is-128x128" *ngIf="card.controls.pic.value != ''">
-							<img src="{{card.controls.pic.value}}" 
-							alt="{{card.controls.word.value}}">
-						</figure>
-						<div class="file has-name is-fullwidth">
-							<label class="file-label">
-								<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,i)">
-								<span class="file-cta">
-								<span class="file-label">
-									Choose a picture...
-								</span>
-								</span>
-								<span class="file-name">
-								{{card.controls.pic.value}}
-								</span>
-							</label>
-						</div>
-						<input type="hidden" formControlName="id" value="{{card.controls.id.value}}"  
-						*ngIf="card.controls.id">
-					</div>
-				</details>
+	
+			<div formArrayName="cards">
+				<label class="label">List of words</label>
 				
+				<div class="form-group" *ngFor="let card of getCardsFormArray().controls; let i=index">
+					<br>
+					<details [open]="card.controls.new.value">
+						<summary>{{card.controls.word.value}}</summary>
+						<div [formGroupName]="i">
+							<div class="field">
+								<div class="control">
+									<input class="input" type="text" placeholder="New vocabulary" formControlName="word">
+								</div>
+							</div>
+							<div class="field">
+								<div class="control">
+									<textarea class="textarea" placeholder="Meaning" formControlName="des"></textarea>
+								</div>
+							</div>
+							<div class="field fc-img-field">
+								<figure class="image is-128x128" *ngIf="card.controls.pic.value != ''">
+									<img src="{{card.controls.pic.value}}" 
+									alt="{{card.controls.word.value}}">
+								</figure>
+								<div class="file has-name">
+									<label class="file-label">
+										<input class="file-input" type="file" name="pic" (change)="onSelectFile($event,i)">
+										<span class="file-cta">
+										<span class="file-label">
+											Choose a picture...
+										</span>
+										</span>
+										<span class="file-name">
+										{{card.controls.pic.value}}
+										</span>
+									</label>
+								</div>
+							</div>
+							<input type="hidden" formControlName="id" value="{{card.controls.id.value}}"  
+							*ngIf="card.controls.id">
+						</div>
+					</details>
+					
+				</div>
 			</div>
-		</div>
-		<input type="hidden" formControlName="id" value="{{flashCardForm.controls.id.value}}"> 
-		<input type="hidden" formControlName="uid" value="0"> 
-		<div class="operator">
-			<div class="control">
-				<button class="button is-outlined is-primary" type="button" (click)="addNewCard()">Add new word</button>
+			<input type="hidden" formControlName="id" value="{{flashCardForm.controls.id.value}}"> 
+			<input type="hidden" formControlName="uid" value="0"> 
+			<div class="operator">
+				<div class="control">
+					<button class="button is-outlined is-primary" type="button" (click)="addNewCard()">Add new word</button>
+				</div>
+				<br/>
+				<div class="control">
+					<button class="button is-primary" type="submit">Save changes</button>
+				</div>
 			</div>
-			<br/>
-			<div class="control">
-				<button class="button is-primary" type="submit">Save changes</button>
-			</div>
-		</div>
-		
-	</form>
+			
+		</form>
+	</div>
+	
+	<div class="fc-set-menu">
+		<a role="button" routerLink="/set/{{flashCardForm.controls.id.value}}/learn" class="button is-success">
+		    Learn
+		</a>
+		<a routerLink="/set/{{flashCardForm.controls.id.value}}/practice" class="button is-warning">
+		    Practice
+		</a>
+		<a routerLink="/set/{{flashCardForm.controls.id.value}}/edit" class="button is-danger" disabled>
+		    Modify
+		</a>
+	</div>
+	
 </div>
 
 

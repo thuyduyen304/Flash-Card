@@ -10,6 +10,7 @@ import { CardsetDetailComponent } from '../cardset-detail/cardset-detail.compone
 })
 export class CardsetListComponent implements OnInit {
   flashCardLists;
+  maxItems;
   @Input() flashCardCat;
   @Input() type;
   constructor(private cardSetService: CardsetService, private dialog: MatDialog) { }
@@ -20,27 +21,38 @@ export class CardsetListComponent implements OnInit {
         this.cardSetService.getSetsByCat(this.flashCardCat)
         .subscribe(flashCardLists => {
           this.flashCardLists = flashCardLists;
+		  this.getMaxItems();
         });
         break;
       case 'recent':
         this.cardSetService.getSetsRecent(1)
         .subscribe(flashCardLists => {
           this.flashCardLists = flashCardLists.map(x => x.set);
+		  this.getMaxItems();
         });
         break;
       case 'fav':
         this.cardSetService.getSetsFavorite(1)
         .subscribe(flashCardLists => {
           this.flashCardLists = flashCardLists.map(x => x.set);
+		  this.getMaxItems();
         });
         break;
     }
+	
+  }
 
+  getMaxItems(): void {
+	if (this.flashCardLists && this.flashCardLists.length % 3 > 0) {
+		this.maxItems = new Array(3 - this.flashCardLists.length % 3);
+	} else {
+		this.maxItems = [];
+	}
+	console.log(this.maxItems.length)
   }
 
   openDialog(sid): void {
     const dialogRef = this.dialog.open(CardsetDetailComponent, {
-      // width: '250px',
       closeOnNavigation: true,
       data: {sid: sid}
     });

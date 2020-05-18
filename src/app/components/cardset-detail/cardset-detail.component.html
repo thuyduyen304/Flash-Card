@@ -1,25 +1,42 @@
-<div class="card" *ngIf="loaded">
-  <header class="card-header">
-	<div *ngIf="setDetails.pic != ''">
-    <figure class="image is-4by3">
-      <img src="{{setDetails.pic}}" alt="{{setDetails.des}}">
-    </figure>
+
+
+<div class="content" id="fc-book">
+	<div class="" *ngIf="loaded">
+		<div class="fc-set-title">
+		{{setDetails.name}}
+		</div>
+		
+		<div class="fc-book-page fc-popup">
+            <article class="has-text-centered">
+                <div class="fc-card-main-content-holder">
+	                <figure class="image">
+	                    <img src="{{setDetails.pic}}" alt="{{setDetails.des}}" draggable="false">
+	                </figure>
+                </div>
+                
+                  <div class="card-content">
+					<div class="content" [innerHTML]="setDetails.des"></div>
+					<div>List of words:</div>
+				    <div class="content">
+				      <span *ngFor="let card of setDetails.cards | slice:0:20;">{{card.word}}, </span>
+				      <span>etc.</span>
+					</div>
+				  </div>
+				  
+				  	<div class="is-centered buttons">
+						<a role="button" routerLink="/set/{{setDetails.id}}/learn" class="button is-success">
+						    Learn
+						</a>
+						<a routerLink="/set/{{setDetails.id}}/practice" class="button is-warning">
+						    Practice
+						</a>
+						<a routerLink="/set/{{setDetails.id}}/modify" class="button is-danger">
+						    Modify
+						</a>
+					</div>
+  
+            </article>
+        </div>
 	</div>
-  <p class="card-header-title">
-    {{setDetails.name}}
-  </p>
-  </header>
-  <div class="card-content">
-	<div class="content" [innerHTML]="setDetails.des"></div>
-	<div>List of words:</div>
-    <div class="content">
-      <span *ngFor="let card of setDetails.cards | slice:0:20;">{{card.word}}, </span>
-      <span>etc.</span>
-	</div>
-  </div>
-  <footer class="card-footer">
-    <a class="card-footer-item" routerLink="set/{{setDetails.id}}/learn">Learn</a>
-    <a class="card-footer-item" routerLink="set/{{setDetails.id}}/practice">Practice</a>
-    <a class="card-footer-item" routerLink="set/{{setDetails.id}}/edit">Modify</a>
-  </footer>
+	
 </div>

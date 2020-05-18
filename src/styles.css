@@ -1,9 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+/* Main Style File */
 
 html, body { 
 	height: 100%;     
-	max-width: 800px;
-    margin: 0 auto !important; }
+    margin: 0 auto !important;
+    background-color: black !important; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 div.main-content {padding: 0 5px !important;}
@@ -16,16 +16,354 @@ article.card {
 	margin-top: 10px;
 }
 
-.is-horizontal-center {
-  justify-content: center;
+.table, .navbar {
+	background-color: transparent !important;
 }
 
+.visible {
+    display: flex;
+}
+
+.hidden {
+    display: none !important; 
+}
+
+#fc-navbar .navbar-start > a.navbar-item {
+	color: #3298dc;
+}
+
+/*
 .card-header .dropdown-trigger button {
 	height: 100%;
 }
 
+*/
+
+/* Main page */
+
+.fc-content-wrapper {
+	width: 979px;
+	margin: 0 auto;
+}
+
+.fc-content-wrapper .table td {
+	border: none;
+}
+
+.fc-content-wrapper .table tr {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fc-content-wrapper .card, .fc-content-wrapper .card header {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.fc-cardholder .card header .card-header-title {
+	padding-top: 0;
+	font-weight: 500;
+	color: white;
+	display: block;
+}
+/* End of Main page */
+
+
+/* Book Silmulation */
+
+.fc-card-image-holder {
+	padding: 0 25%;
+}
+
+.fc-card-main-content
+{
+	height: 400px;
+	width: auto;
+}
+
+.card-content .title {
+	margin-bottom: 0 !important;
+	font-size: 3rem
+}
+
+#fc-set-learn .fc-card-back .fc-card-main-content {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.fc-set-title {
+	margin-left: 25px;
+	padding-left: 25px;
+	font-size: 1.5rem;
+	text-align: left;
+	font-family: monospace;
+    width: 80%;
+    font-weight: 700;
+    color: #3298dc;
+    border-bottom-style: none;
+    border-radius: 20px 90px 0px 0px;
+    background-color: darkslategray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fc-book-2-pages .fc-set-title {
+	width: 40%;
+}
+
+.fc-set-menu {
+	width: 100px;
+    position: absolute;
+    right: 7%;
+    top: 10rem;
+}
+
+.fc-set-menu .button {
+	display: block;
+    text-align: right;
+    width: 100%;
+    font-weight: 700;
+}
+
+.fc-set-menu .button[disabled] {
+	z-index: 2;
+}
+
+
+.fc-set-content {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    
+}
+
+.fc-card-back, .fc-card-front {
+	width: 50%;
+}
+
+.fc-book-page {
+	border-style: dashed;
+    border-radius: 25px;
+    background-color: papayawhip;
+	position: relative;
+	z-index: 1;
+	padding: 15px;
+}
+
+.fc-card-main-content {
+    align-items: center;
+    height: 400px;
+}
+
+.fc-card-detail {
+	display: flex;
+}
+
+.fc-card-detail img {
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: contain;
+	padding-top: 0 !important;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+.fc-card-detail article {
+	margin-bottom: 0;
+	padding: 0.5rem 2.5rem 0.5rem 1.5rem
+}
+
+
+.fc-set-arrow {
+	position: absolute;
+    top: 50%;
+    bottom: 50%;
+    font-size: 3.5rem;
+    color: #3298dc;
+    font-weight: 700;
+    opacity: 0.5;
+    z-index: 2
+}
+
+.fc-arrow-left {
+	left: 10px;
+}
+
+.fc-arrow-right {
+	right: 10px;
+}
+
+.fc-quiz-answer {
+	margin: 1.2rem;
+}
+
+/* End of Book Simulation*/
+
+
+/* Form */
+.fc-form .image img {
+	max-height: 400px;
+	width: auto;
+}
+
+.fc-form .fc-img-field > * {
+	float: left;
+}
+
+.form-group {
+	clear: both;
+}
+/* End of Form */
+
+.fc-popup .image img {
+	height: 200px;
+	width: auto;
+	margin: 0 auto
+}
+
+mat-dialog-container {
+	background: transparent !important;
+}
+
+.fc-footer {
+	margin-top: 15px;
+	padding: 10px;
+	border-top: solid 1px;
+}
+
+#fc-logo {
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+	font-family: monospace;
+	font-weight: 700;
+    color: #3298dc;
+    font-size: 1.5rem;
+}
+
 @media screen and (max-width: 450px) {
 	article.card {
-		width: 128px;
+		width: 98px;
+	}
+	.fc-des {
+		display: none;
+	}
+	body, .fc-content-wrapper {
+	max-width: 100%;}
+	
+	.fc-content-wrapper .table tr {
+	    display: table-row;
+	    flex-wrap: none;
+	}
+	
+	.fc-popup .image img {
+		display: none;
+	}
+	
+	.card-content {
+		padding: 10px;
+	}
+	
+	.fc-book-2-pages .fc-card-front .fc-card-main-content {
+		height: 40vh;
+	}
+	
+	.fc-book-2-pages .fc-card-back .fc-card-main-content {
+		height: 15vh;
+	}
+	
+	.fc-popup .button {
+		border-radius: 2px;
+	    font-size: 0.75rem;
+	}
+	
+	.fc-card-detail {
+	    flex-direction: column;
+	}
+	
+	.fc-book-2-pages .fc-set-title {
+		width: 80%
+	}
+	
+	.fc-card-back, .fc-card-front {
+		width: 100%
+	}
+	
+	.fc-set-menu {
+		display: block;
+    	width: 100%;
+   	    top: 5.5rem;
+    	right: 0;
+    	z-index: 2;
+    	text-align: right;
+	}
+	
+	.fc-set-menu .button {
+	    font-size: 0.75rem;
+	    width: 100px;
+      	text-align: center;
+      	display: inline-block;
+      	color: white !important;
+	}
+	
+	.fc-set-menu .button:last-child {
+		border-top-right-radius: 25px;
+	}
+	
+	.fc-set-menu .button:first-child {
+		border-bottom-left-radius: 90px;
+	}
+	
+	.fc-set-menu .button[disabled] {
+		color: black !important;
+	}
+	
+	.fc-content-wrapper {
+		width: 100%;
+	}
+	
+	#fc-logo {
+		font-size: 1.2rem;
+	}
+	
+	.fc-book-page {
+		padding-top: 2.5rem;
+	}
+	
+	.fc-quiz-answer {
+		margin: 0;
+	}
+	
+	.fc-quiz-answer .button {
+		background-color: transparent !important;
+	    color: black !important;
+	}
+	.fc-quiz-answer:nth-child(3), .fc-quiz-answer:nth-child(5) {
+		float: right
+	}
+	
+	.fc-quiz-answer:nth-child(2), .fc-quiz-answer:nth-child(4) {
+		float: left
+	}
+	.fc-footer {
+		margin-top: 0;
+		padding: 0
+	}
+	
+	.fc-guide {
+		display:none
+	}
+	
+	.fc-main-content {
+		width: 270px;
+	}
+	
+	.navbar .burger {
+		color: white
 	}
 }

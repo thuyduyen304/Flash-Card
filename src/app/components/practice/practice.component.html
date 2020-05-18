@@ -1,3 +1,4 @@
+<!--
 <header class="card-header">
   <p class="card-header-title">
   {{set.name}}
@@ -23,8 +24,8 @@
           </div>
       </div>
   </div>
-</header>
-
+</header> -->
+<!-- 
 <div class="main-content">
   <div class="tile is-ancestor">
     <div class="tile is-4 is-vertical">
@@ -54,4 +55,66 @@
     </div>
 
   </div>
+</div> -->
+
+
+<div class="fc-book fc-book-2-pages" id="fc-set-practice">
+
+    <div class="fc-set-title">
+		{{set.name}}
+	</div>
+	
+	<div class="fc-set-content">
+		<div class="fc-card-detail">
+	        
+	        <div class="is-horizontal-center fc-card-front fc-book-page">
+	            <article *ngIf="cards.length > 0" class="has-text-centered">
+	                
+	                <div class="fc-card-main-content-holder">
+		                <figure class="image fc-card-main-content">
+		                    <img src="{{cards[target].pic}}" alt="{{cards[target].des}}" draggable="false">
+		                </figure>
+	                </div>
+	                <p class="title">{{cards[target].des}}</p>
+	            </article>
+	        </div>
+	        
+	        <div class="has-text-centered is-size-3 fc-card-back fc-book-page">
+	                <div class="fc-card-main-content-holder">
+		                <div class="fc-card-main-content fc-quiz-answers">
+		                  <div class="has-text-info is-size-6 is-italic">
+			                  <p class="fc-guide" *ngIf="cards.length > 0; else loading">Choose the right answer to go next!</p>
+			                  <ng-template #loading>There is no content yet! Feel free to add some!</ng-template>
+		                  </div>
+					      <div *ngIf="ans[0]" class="fc-quiz-answer">
+					        <button class="button is-info is-medium" (tap)="tap(0)" [disabled]="ans[0].state">{{ans[0].word}}</button>
+					      </div>
+					      <div *ngIf="ans[1]" class="fc-quiz-answer">
+					        <button class="button is-info is-medium" (tap)="tap(1)" [disabled]="ans[1].state">{{ans[1].word}}</button>
+					      </div>
+					      <div *ngIf="ans[2]" class="fc-quiz-answer">
+					        <button class="button is-info is-medium" (tap)="tap(2)" [disabled]="ans[2].state">{{ans[2].word}}</button>
+					      </div>
+					      <div *ngIf="ans[3]" class="fc-quiz-answer">
+					        <button class="button is-info is-medium" (tap)="tap(3)" [disabled]="ans[3].state">{{ans[3].word}}</button>
+					      </div>
+					    </div>
+					    
+	                </div>
+              </div>
+	    </div>
+	</div>
+
+	<div class="fc-set-menu">
+		<a role="button" routerLink="/set/{{set.id}}/learn" class="button is-success">
+		    Learn
+		</a>
+		<a routerLink="/set/{{set.id}}/practice" class="button is-warning" disabled>
+		    Practice
+		</a>
+		<a routerLink="/set/{{set.id}}/edit" class="button is-danger">
+		    Modify
+		</a>
+	</div>
 </div>
+

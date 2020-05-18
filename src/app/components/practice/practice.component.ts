@@ -11,7 +11,7 @@ export class PracticeComponent implements OnInit {
   set;
   cards;
   target;
-  ans;
+  ans; 
   
   dropdown_active = false;
 
@@ -26,17 +26,26 @@ export class PracticeComponent implements OnInit {
 
   getRandomAns(target) {
     this.ans = [];
-    let i = 0;
-    while (this.ans.length < 3 && i < this.cards.length) {
-      let rand_ans = Math.floor(Math.random() * this.cards.length);
-      if (!this.ans.some(e => e.word === this.cards[rand_ans].word)) {
-        this.ans.push({word: this.cards[rand_ans].word, state: 0});
-        i++;
-      }
-    }
-    var rand_target = Math.floor(Math.random() * this.ans.length);
-    this.ans[3] = Object.assign({}, this.ans[rand_target]);
-    this.ans[rand_target] = {word: this.cards[target].word, state: 0}
+	if (this.cards.length > 0) {
+		let i = 0;
+		let chosen = []
+	    while (this.ans.length < 3 && i < this.cards.length) {
+	      let rand_ans = Math.floor(Math.random() * this.cards.length);
+	      if (!chosen.some(e => e == rand_ans)) {
+			chosen.push(rand_ans);
+	        this.ans.push({word: this.cards[rand_ans].word, state: 0});
+	        i++;
+	      }
+	    }
+		console.log(chosen);
+		console.log(target);
+	    var rand_target = Math.floor(Math.random() * 4);
+		if (rand_target != 3) {
+			this.ans[3] = Object.assign({}, this.ans[rand_target]);
+		} 
+	    this.ans[rand_target] = {word: this.cards[target].word, state: 0}
+	}
+    
   }
 
   tap(idx) {

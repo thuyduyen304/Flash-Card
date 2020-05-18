@@ -1,47 +1,75 @@
-<div class="card">
-    <header class="card-header">
-        <p class="card-header-title">
-        {{set.name}}
-        </p>
+<div class="fc-book fc-book-2-pages" id="fc-set-learn">
 
-        <div tabindex="-1" (click)="dropdown_active=!dropdown_active" (blur)="dropdown_active=false" [class] = "dropdown_active ? 'is-active dropdown is-right' : 'dropdown is-right'">
-            <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Learn</span>
-                <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-                </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                <a routerLink="/set/{{set.id}}/practice" class="dropdown-item">
-                    Practice
-                </a>
-                <a routerLink="/set/{{set.id}}/edit" class="dropdown-item">
-                    Modify
-                </a>
-                </div>
-            </div>
-        </div>
+    <div class="fc-set-title">
+		{{set.name}}
+	</div>
+	
+	<div *ngIf="cards.length > 0; else loading" class="fc-set-content">
+		<div class="swipe-box fc-card-detail"  
+	        *ngFor="let card of cards; let idx=index"
+	        (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" 
+	        [class.visible]="card.visible" [class.hidden]="!card.visible">
+	        
+	        <div class="is-horizontal-center fc-book-page fc-card-front">
+	            <article class="has-text-centered">
+	                
+	                <div class="fc-card-main-content-holder">
+		                <figure class="image fc-card-main-content">
+		                    <img src="{{card.pic}}" alt="{{card.des}}" draggable="false">
+		                </figure>
+	                </div>
+	                <p class="title">{{card.word}}</p>
+	            </article>
+	        </div>
+	        
+	        <div class="has-text-centered has-text-info is-size-3 fc-book-page fc-card-back">
+	                <div class="fc-card-main-content-holder">
+		                <div class="fc-card-main-content is-size-2 has-text-dark" >
+		                    <p>{{card.des}}</p>
+		                    
+		                    
+		                </div>
+	                </div>
+	              	
+	    	</div>
+		</div>
+	</div>
+	
+	<span class="fc-set-arrow fc-arrow-left icon"><i class="fa fa-caret-left"></i></span>
+	<span class="fc-set-arrow fc-arrow-right icon"><i class="fa fa-caret-right"></i></span>
+	
+	<ng-template #loading>
+			<div class="fc-set-content">
+				<div class="swipe-box fc-card-detail">
+					<div class="fc-card-front fc-book-page">
+						<article class="fc-card-main-content"></article>
+					</div>
+			        
+			        <div class="has-text-centered fc-card-back fc-book-page">
+			                <div class="fc-card-main-content-holder">
+				                <div class="tile is-parent answers is-vertical fc-card-main-content">
+				                  <div class="tile is-child has-text-info is-size-6 is-italic">
+					                  <p>There is no content yet! Feel free to add some!</p>
+				                  </div>
+							    </div>
+							    
+			                </div>
+		              </div>
+				</div>
+			
+			</div>
 
-    </header>
-    <div class="card-content swipe-box"  
-        *ngFor="let card of cards; let idx=index"
-        (swipeleft)="swipe(idx, $event.type)" (swiperight)="swipe(idx, $event.type)" 
-        [class.visible]="card.visible" [class.hidden]="!card.visible">
-        <div class="is-horizontal-center column">
-            <article class="notification has-text-centered">
-                <p class="title">{{card.word}}</p>
-                <figure class="image is-square">
-                    <img src="{{card.pic}}" alt="{{card.des}}">
-                </figure>
-            </article>
-            <div class="has-text-centered is-size-3">
-            {{card.des}}
-            </div>
-        </div>
-    </div>
-	<div class="has-text-centered is-size-7"><span>Swipe to learn new word</span></div>
+		</ng-template>
 
+	<div class="fc-set-menu">
+		<a role="button" routerLink="/set/{{set.id}}/learn" class="button is-success" disabled>
+		    Learn
+		</a>
+		<a routerLink="/set/{{set.id}}/practice" class="button is-warning">
+		    Practice
+		</a>
+		<a routerLink="/set/{{set.id}}/edit" class="button is-danger">
+		    Modify
+		</a>
+	</div>
 </div>

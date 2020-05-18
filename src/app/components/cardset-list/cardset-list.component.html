@@ -3,7 +3,7 @@
 	<div class="table-container">
 		<table class="table">
 			<tr>
-				<td *ngFor="let flashcard of flashCardLists">
+				<td *ngFor="let flashcard of flashCardLists" class="fc-cardholder">
 					<article class="card has-text-centered" (click)="openDialog(flashcard.id)">
 						<div class="card-image">
 						<figure class="image is-4by3">
@@ -15,6 +15,10 @@
 							{{ flashcard.name }}
 							</a>
 						</header>
+					</article>
+				</td>
+				<td *ngFor="let item of maxItems" class="fc-cardholder fc-empty-card">
+					<article class="card">
 					</article>
 				</td>
 			</tr>

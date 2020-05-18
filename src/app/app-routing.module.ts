@@ -38,9 +38,10 @@ const routes: Routes = [
   },
   {
     path: 'set/:sid',
-    pathMatch: 'full',
-    component: CardsetDetailComponent
+    component: CardsetDetailComponent,
+	
   },
+
   {
     path: 'set/:sid/practice',
     component: PracticeComponent,
