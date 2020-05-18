@@ -366,4 +366,8 @@ mat-dialog-container {
 	.navbar .burger {
 		color: white
 	}
+	
+	.fc-card-back .fc-card-main-content p {
+		font-size: 2rem;
+	}
 }
