@@ -270,11 +270,11 @@ mat-dialog-container {
 	}
 	
 	.fc-book-2-pages .fc-card-front .fc-card-main-content {
-		height: 40vh;
+		height: 35vh;
 	}
 	
 	.fc-book-2-pages .fc-card-back .fc-card-main-content {
-		height: 15vh;
+		height: 10vh;
 	}
 	
 	.fc-popup .button {
