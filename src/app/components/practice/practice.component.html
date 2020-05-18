@@ -68,11 +68,11 @@
 		<div class="fc-card-detail">
 	        
 	        <div class="is-horizontal-center fc-card-front fc-book-page">
-	            <article *ngIf="cards.length > 0" class="has-text-centered">
+	            <article class="has-text-centered">
 	                
 	                <div class="fc-card-main-content-holder">
 		                <figure class="image fc-card-main-content">
-		                    <img src="{{cards[target].pic}}" alt="{{cards[target].des}}" draggable="false">
+		                    <img *ngIf="cards[target]" src="{{cards[target].pic}}" alt="{{cards[target].des}}" draggable="false">
 		                </figure>
 	                </div>
 	                <p class="title">{{cards[target].des}}</p>
